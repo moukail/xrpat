@@ -1,0 +1,161 @@
+" xrpat: symlink $HOME/.vimrc
+" xrpat: symlink /root/.vimrc
+"
+" Configuration file for vim on Raspberry Pi.
+" This file is part of xrpat. See https://github.com/wolfcw/xrpat
+"
+
+set bs=indent,eol,start
+set nocompatible
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set linebreak                 " when wrapping, try to break at characters in breakat
+set breakat=\ ^I!@*-+;:,./?   " when wrapping, break at these characters
+"set showbreak=>               " character to show that a line is wrapped
+set showcmd                   " show number of selected chars/lines in status
+set noerrorbells
+set visualbell                " must turn visual bell on to remove audio bell
+set t_vb=                     " turn bells of, must also set this in .gvimrc
+set noantialias
+set fencs=ucs-bom,utf-8,iso8859-1
+set fenc=utf-8 enc=utf-8 tenc=utf-8
+behave mswin
+syntax on
+set bg=dark
+colorscheme koehler
+"colorscheme solarized
+set laststatus=2
+set statusline=%(%f%m%r%h%w\ [%{&ff}]\ [%Y]%)%=%(\ %9*[P=%3l,%2v]%0*\ [%p%%]\ [L=%L]%)
+set switchbuf=usetab
+set tabpagemax=100
+set noequalalways
+set guiheadroom=0
+set splitbelow                " split windows below current one
+set title
+set ffs=unix,dos,mac          " prefer unix line endings
+filetype plugin on
+set spelllang=de,en
+set autoindent
+set backspace=indent,eol,start
+set comments=b:#,:%,fb:-,n:>,n:)
+set nodigraph
+set expandtab
+autocmd FileType make setlocal noexpandtab
+set formatoptions=cqrt
+set shiftwidth=4
+set tabstop=4
+map  <M-Left>   b
+map  <M-Right>  w
+map  <D-Left>   0
+map  <D-Right>  $
+map  <D-S-Right> <S-End>
+map  <D-S-Left> <S-Home>
+map  <C-Q> i<zqfm><esc>gqip?<zqfm><cr>df>
+if has('autocmd')
+    autocmd FileType mail set tw=70
+endif
+map <F4> :set spell!<CR><Bar>:echo "Spell check " . strpart("offon", 3 * &spell, 3)<CR>
+set keymodel=startsel,stopsel
+set whichwrap+=<,>,h,l,[,]
+hi User9 term=bold  cterm=bold ctermfg=yellow ctermbg=darkblue gui=bold guifg=white guibg=blue
+hi StatusLine     term=bold  cterm=bold ctermfg=white ctermbg=darkblue gui=bold guifg=cyan guibg=blue
+hi StatusLineNC   term=reverse  ctermfg=white ctermbg=lightblue guifg=white guibg=blue
+hi SignColumn guibg=black
+set nu
+imap <D-3> <C-o>ma<D-F12>
+imap <D-4> <C-o>`a<D-F12>
+nmap <D-3> ma
+nmap <D-4> `a
+imap <D-5> [
+imap <D-6> ]
+imap <D-8> {
+imap <D-9> }
+imap √ <D-v>
+imap ç <D-c>
+imap ≈ <D-x>
+imap <D-/> \
+imap <D-7> \
+set list listchars=tab:▸\ ,trail:·
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+    endif
+let mapleader=","
+vmap <Tab> >
+vmap <S-Tab> <
+let g:tex_fold_enabled=0
+let g:tex_conceal=''
+autocmd VimResized * exe "normal! \<c-w>="
+set iskeyword=@,48-57,_,-,:,192-255
+snoremap <BS> <DEL>
+nnoremap <space> za
+vnoremap <space> zf
+highlight  Pmenu        ctermbg=white   ctermfg=black
+highlight  PmenuSel     ctermbg=blue    ctermfg=white   cterm=bold
+highlight  PmenuSbar    ctermbg=grey    ctermfg=grey
+highlight  PmenuThumb   ctermbg=blue    ctermfg=blue
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+inoremap <expr> <C-d> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
+inoremap <expr> <C-u> pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+:imap jj <Esc>
+set magic
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = ''
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_theme = 'simple'
+set viminfo='10,\"100,:20,%,n~/.viminfo
+set wrap linebreak nolist
+set virtualedit=
+set tw=0
+set display+=lastline
+set slm=mouse,key,cmd
+noremap  <silent> <Up>      gk
+noremap  <silent> <Down>    gj
+noremap  <silent> <Home>    g<Home>
+noremap  <silent> <End>     g<End>
+noremap  <silent> <D-Right> g<End>
+noremap  <silent> <D-Left>  g<Home>
+inoremap <expr> <Up>        pumvisible() ? "\<C-p>" : "\<C-o>gk"
+inoremap <expr> <Down>      pumvisible() ? "\<C-n>" : "\<C-o>gj"
+inoremap <silent> <Home>    <C-o>g<Home>
+inoremap <silent> <End>     <C-o>g<End>
+inoremap <silent> <D-Right> <C-o>g<End>
+inoremap <silent> <D-Left>  <C-o>g<Home>
+snoremap <silent> <Up>        <Esc>gki
+snoremap <silent> <Down>      <Esc>gji
+snoremap <silent> <S-Down>    <C-o>gj
+snoremap <silent> <S-Up>      <C-o>gk
+snoremap <silent> <D-S-Right> <C-o>g<End>
+snoremap <silent> <D-S-Left>  <C-o>g<Home>
+imap <silent> <S-Down> <C-o>v<C-g><C-o>gj
+imap <silent> <S-Up>   <C-o>v<C-g><C-o>gk
+highlight ExtraWhitespace ctermbg=red guibg=red
+:autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
+if has('gui_running')
+else
+  imap OA <ESC>ki
+endif

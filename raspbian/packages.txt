@@ -1,0 +1,94 @@
+# Raspian package list
+#
+#
+############## Core software, usually required:
+#
+vim
+git-core
+tmux
+screen
+subversion
+cvs
+zip
+sqlite3
+wavemon
+lynx
+w3m
+bash-completion
+ack
+#
+#
+############## GPIO-related packages:
+#
+python-smbus
+i2c-tools
+python-dev
+python-rpi.gpio
+#
+#
+############## Webcam-related packages:
+#
+libjpeg8-dev
+imagemagick
+libav-tools
+#
+#
+############## Web server related packages:
+#
+apache2
+apache-perl
+apache-ssl
+mysql-server
+php5
+php5-mysql
+mcrypt
+php5-sqlite
+phpmyadmin
+libapache2-mod-php5
+libapache2-mod-perl2
+php5-common
+php5-curl
+php5-dev
+php5-gd
+php5-imap
+php5-ldap
+php5-mhash
+php5-mysql
+php5-odbc
+php-pear
+php-apc
+librrds-perl
+libhttp-daemon-perl
+libjson-perl
+libipc-sharelite-perl
+#
+#
+############## Sound server related packages:
+#
+mpd
+gcc-avr
+avr-libc
+avrdude
+mpc
+alsa-utils
+libesd0
+avahi-daemon
+icecast2
+pulseaudio
+#
+#
+############## Arduino-related packages:
+#
+arduino
+picocom
+cu
+python2.7
+python-setuptools
+python-configobj
+python-jinja2
+python-serial
+#
+#
+############## Other services:
+#
+proftpd-basic
