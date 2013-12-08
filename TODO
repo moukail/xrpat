@@ -1,0 +1,7 @@
+xrpat TODO list:
+
+* Raspian: Do not ask for passwords during installation (MySQL etc.)
+* Add options to
+  - change user password
+  - reboot after installation
+
