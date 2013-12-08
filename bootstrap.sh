@@ -21,12 +21,18 @@ cd $HOME && mkdir -p git && cd git || exit 1
 
 # Platform-specific steps
 if [ -f /etc/debian_version ] ; then                                # Raspian
-    sudo echo 'pi ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
-    sudo apt-get -y update
-    sudo apt-get -y upgrade
-    sudo apt-get -y dist-upgrade
-    sudo apt-get -y install git-core
-    git clone $GITREPO
+    # on Raspian, nopasswd sudo is already active and git-core is installed
+    # by default so everything can be cloned, not just bootstrap.sh downloaded
+    #sudo chmod +w /etc/sudoers
+    #echo 'pi ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers > /dev/null
+    #sudo chmod -w /etc/sudoers
+    for x in 1 2 ; do
+        sudo apt-get -y update          # we do it twice because it tends to fail
+        sudo apt-get -y upgrade
+        sudo apt-get -y dist-upgrade
+    done
+    #sudo apt-get -y install git-core
+    #git clone $GITREPO
     cd xrpat && raspbian/install.sh || exit 1
 else
     echo "This RPi Linux distribution is not yet supported. :-("

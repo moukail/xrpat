@@ -31,7 +31,7 @@ sudo rm -rf /root/.vimrc     ; sudo ln -s $XRPATPATH/generic/home_dotfiles/dot_v
 sudo rm -rf /root/.tmux.conf ; sudo ln -s $XRPATPATH/generic/home_dotfiles/dot_tmux.conf /root/.tmux.conf
 sudo rm -rf /root/.bashrc    ; sudo ln -s $XRPATPATH/generic/home_dotfiles/dot_bashrc    /root/.bashrc
 
-sudo mv /etc/rc.local /etc/rc.local.dist ; ln -s $XRPATPATH/generic/etc/rc.local /etc/rc.local
+sudo mv /etc/rc.local /etc/rc.local.dist ; sudo ln -s $XRPATPATH/generic/etc/rc.local /etc/rc.local
 sudo mkdir -p /root/bin
 sudo ln -s $XRPATPATH/generic/pingmonitor.pl /root/bin/pingmonitor.pl
 

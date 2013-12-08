@@ -18,8 +18,8 @@ echo "Please edit $HOME/xrpat.conf and re-run $0"
 exit 1
 fi
 
-echo "Configuring network interfaces..."
-sudo cat > /etc/network/interfaces << EOF
+echo "xrpat: Configuring network interfaces..."
+cat << EOF | sudo tee /etc/network/interfaces > /dev/null
 auto lo
 iface lo inet loopback
 iface eth0 inet dhcp
@@ -34,8 +34,8 @@ wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
 iface default inet dhcp
 EOF
 
-echo "Configuring WPA supplicant..."
-sudo cat > /etc/wpa_supplicant/wpa_supplicant.conf << EOF
+echo "xrpat: Configuring WPA supplicant..."
+cat << EOF | sudo tee /etc/wpa_supplicant/wpa_supplicant.conf > /dev/null
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 network={
@@ -49,27 +49,27 @@ network={
 }
 EOF
 
-echo "Configuring hostname..."
-sudo cat > /etc/hostname << EOF
+echo "xrpat: Configuring hostname..."
+cat << EOF | sudo tee /etc/hostname > /dev/null
 $RPIHOSTNAME
 EOF
 
-echo "Configuring SSH authorized_keys..."
+echo "xrpat: Configuring SSH authorized_keys..."
 cd $HOME && mkdir -p .ssh && cd .ssh && cat > authorized_keys << EOF
 $SSHKEY
 EOF
 cd $HOME && cd .ssh && chmod 400 authorized_keys
 
-echo "Configuring kernel modules..."
+echo "xrpat: Configuring kernel modules..."
 sudo /bin/rm -f /etc/modprobe.d/raspi-blacklist.conf
-sudo cat >> /etc/modules << EOF
+cat << EOF | sudo tee /etc/modules > /dev/null
 i2c-bcm2708
 i2c-dev
 EOF
 sudo modprobe i2c-bcm2708 && sudo modprobe i2c-dev
 
-echo "Configuring timezone..."
-sudo echo 'Europe/Berlin' > /etc/timezone
+echo "xrpat: Configuring timezone..."
+echo 'Europe/Berlin' | sudo tee /etc/timezone > /dev/null
 sudo cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
 exit 0
