@@ -11,15 +11,15 @@ XRPATPATH=$HOME/git/xrpat
 
 # Automated installation:
 
-echo "Updating system settings..."
+echo "xrpat: Updating system settings..."
 $XRPATPATH/raspbian/pre-install.sh || exit 1
 
 
-echo "Installing software packages..."
+echo "xrpat: Installing software packages..."
 sudo apt-get -y update
 sudo apt-get -y upgrade
 for x in $(cat $XRPATPATH/raspbian/packages.txt | egrep -v '^#') ; do
-    echo "Installing package $x..."
+    echo "xrpat: Installing package $x..."
     sudo apt-get -y install $x
     echo " "
 done
@@ -29,4 +29,4 @@ done
 # $XRPATPATH/generic/post-install.sh || exit 1
 
 
-echo "Finished."
+echo "xrpat: Finished."

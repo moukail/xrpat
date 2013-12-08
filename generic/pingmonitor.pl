@@ -10,7 +10,7 @@ if (! defined ($dobeep)) {
 	$dobeep = 0;
 }
 
-my $pingtarget = 'put.some.ipaddress.here';
+my $pingtarget = 'www.google.com';
 my $seconds_threshold = 300;
 
 if ($> == 0) {

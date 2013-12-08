@@ -31,6 +31,7 @@ if [ -f /etc/debian_version ] ; then                                # Raspian
         sudo apt-get -y upgrade
         sudo apt-get -y dist-upgrade
     done
+    sudo apt-get -y vim
     #sudo apt-get -y install git-core
     #git clone $GITREPO
     cd xrpat && raspbian/install.sh || exit 1

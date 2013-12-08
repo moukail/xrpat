@@ -14,7 +14,7 @@ WLAN0PSK="secret"
 RPIHOSTNAME="newPi"
 SSHKEY="none"
 EOF
-echo "Please edit $HOME/xrpat.conf and re-run $0"
+echo "xrpat: Please edit $HOME/xrpat.conf and re-run $0"
 exit 1
 fi
 
