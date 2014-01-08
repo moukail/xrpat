@@ -31,10 +31,11 @@ if [ -f /etc/debian_version ] ; then                                # Raspian
         sudo apt-get -y upgrade
         sudo apt-get -y dist-upgrade
     done
-    sudo apt-get -y vim
+    sudo apt-get -y install vim
+    sudo apt-get -y install tmux
     #sudo apt-get -y install git-core
     #git clone $GITREPO
-    cd xrpat && raspbian/install.sh || exit 1
+    cd xrpat && tmux new-session raspbian/install.sh || exit 1
 else
     echo "This RPi Linux distribution is not yet supported. :-("
     exit 1
@@ -43,7 +44,7 @@ fi
 
 # Post-installation steps for any platform
 cd $HOME && cd git && cd xrpat || exit 1
-generic/post-install.sh || exit 1
+tmux new-session generic/post-install.sh || exit 1
 
 
 exit 0
