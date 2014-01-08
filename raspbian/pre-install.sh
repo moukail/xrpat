@@ -13,6 +13,7 @@ SSIDNAME="changeme"
 WLAN0PSK="secret"
 RPIHOSTNAME="newPi"
 SSHKEY="none"
+DEFSRVPWD="secret"
 EOF
 echo "xrpat: Please edit $HOME/xrpat.conf and re-run $0"
 exit 1

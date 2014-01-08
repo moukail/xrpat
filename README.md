@@ -168,7 +168,7 @@ backplates, and DHT sensors.
 
 post-install.sh is also the script that installs xrpat's default configuration
 files (e.g., for vim and tmux) by symlinking them from $HOME and, for
-some files, /root or /etc. 
+some files, /root or /etc.
 
 
 ### Tools provided by xrpat
