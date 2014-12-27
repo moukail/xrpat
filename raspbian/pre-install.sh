@@ -46,7 +46,7 @@ network={
         key_mgmt=WPA-PSK
         proto=RSN
         pairwise=CCMP
-        group=TKIP
+        group=CCMP
 }
 EOF
 

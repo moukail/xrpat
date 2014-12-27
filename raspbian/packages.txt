@@ -16,6 +16,7 @@ lynx
 w3m
 bash-completion
 ack
+mosh
 #
 #
 ############## GPIO-related packages:

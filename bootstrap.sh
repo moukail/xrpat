@@ -35,7 +35,7 @@ if [ -f /etc/debian_version ] ; then                                # Raspian
     sudo apt-get -y install tmux
     #sudo apt-get -y install git-core
     #git clone $GITREPO
-    cd xrpat && tmux new-session raspbian/install.sh || exit 1
+    cd xrpat && raspbian/install.sh || exit 1
 else
     echo "This RPi Linux distribution is not yet supported. :-("
     exit 1

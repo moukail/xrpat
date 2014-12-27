@@ -36,7 +36,7 @@ sudo mkdir -p /root/bin
 sudo ln -s $XRPATPATH/generic/pingmonitor.pl /root/bin/pingmonitor.pl
 
 
-echo "Cleaning up XRPAT configuration file..."
-cd $HOME && rm -f xrpat.conf
+#echo "Cleaning up XRPAT configuration file..."
+#cd $HOME && rm -f xrpat.conf
 
 exit 0
